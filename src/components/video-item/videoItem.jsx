@@ -1,3 +1,5 @@
+import styles from "./videoItem.module.css";
+
 function VideoItem(props) {
   const { item } = props;
   const {
@@ -10,13 +12,12 @@ function VideoItem(props) {
   } = item;
 
   return (
-    <li className="video__item">
-      <img className="video__image" src={videoImage} alt="" />
-      <div className="channel__image"></div>
-      <h1 className="video__title">{videoTitle}</h1>
-      <h2 className="channel__title">{channelTitle}</h2>
-      <div className="video__description">
-        <small className="views"></small>
+    <li className={styles.video__item}>
+      <img className={styles.video__image} src={videoImage} alt="" />
+      <h1 className={styles.video__title}>{videoTitle}</h1>
+      <h2 className={styles.channel__title}>{channelTitle}</h2>
+      <div className={styles.video__description}>
+        <small className="views">조회수</small>
         <small className="published-at">{publishedAt}</small>
       </div>
     </li>
