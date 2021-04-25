@@ -1,0 +1,31 @@
+.video__item {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  list-style: none;
+}
+
+.video__image {
+  width: 100%;
+}
+
+.video__title {
+  display: -webkit-box;
+  margin: 8px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 18px;
+}
+
+.video__description {
+  display: flex;
+  flex-direction: row;
+}
+
+.channel__title {
+  margin: 4px 0px;
+  font-size: 15px;
+  font-weight: normal;
+}

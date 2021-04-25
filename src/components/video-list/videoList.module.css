@@ -1,0 +1,17 @@
+.video__list {
+  display: grid;
+  margin: 0px;
+  padding: 0px;
+  grid-template-columns: repeat(auto-fill, minmax(50%, auto));
+}
+
+.video__list > li {
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 765px) {
+  .video__list {
+    grid-template-columns: repeat(auto-fill, minmax(25%, auto));
+  }
+}
