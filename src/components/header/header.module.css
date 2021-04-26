@@ -1,0 +1,41 @@
+.header {
+  position: sticky;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0px 10px;
+  height: 48px;
+  background-color: #fff;
+}
+
+.logo {
+  display: inline-block;
+  padding: 10px;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.logo  > img {
+  width: auto;
+  height: 100%;
+}
+
+.search__keyword {
+  margin: 0px 10px;
+  width: 100%;
+  height: 35px;
+  border: 1px solid #e6e7e8;
+}
+
+.user {
+  margin-left: auto;
+}
+.user__profile {
+  display: inline-block;
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #f1f1f2;
+}
