@@ -1,8 +1,10 @@
-import './app.css';
+import VideoList from './components/video-list/videoList';
 
 function App() {
   return (
-    <h1>hello</h1>
+    <>
+      <VideoList></VideoList>
+    </>
   );
 }
 
