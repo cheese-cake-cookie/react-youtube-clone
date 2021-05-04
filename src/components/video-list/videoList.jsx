@@ -5,7 +5,7 @@ function VideoList({videoList}) {
   return (
     <ul className={styles.video__list}>
       {videoList.map((item) => (
-        <VideoItem key={item.id} item={item.snippet} />
+        <VideoItem key={item.etag} item={item.snippet} />
       ))}
     </ul>
   );

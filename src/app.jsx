@@ -2,11 +2,8 @@ import {useState, useEffect} from 'react';
 import Header from './components/header/header';
 import VideoList from './components/video-list/videoList';
 
-function App() {
-  const [videoList, setVideoList] = useState([]);
-  const [searchKeyword, setSearchKeyword] = useState('');
-  const apiURL = "https://www.googleapis.com/youtube/v3/search";
-  let options = {
+function getSearchParams(searchKeyword) {
+  const options = {
     part: "id,snippet",
     regionCode: "KR",
     key: "AIzaSyBFZj-aYdpJJaUXvva_YKpoEDR91GVawzU",
@@ -14,27 +11,28 @@ function App() {
     q: searchKeyword,
   };
 
-  const getVideoList = async () => {
-    const params = Object.keys(options).map(key => `${key}=${options[key]}`).join('&');
-    const fetchData = await fetch(`${apiURL}?${params}`)
-      .then((res) => res.json())
-      .then((res) => res.items);
+  return Object.keys(options).map(key => `${key}=${options[key]}`).join('&');
+};
 
-      console.log(fetchData)
-    setVideoList(fetchData);
-  };
-  
+function App() {
+  const [videoList, setVideoList] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState('');
+  const apiURL = "https://www.googleapis.com/youtube/v3/search";
   
   const handleSearch = (e) => {
     if (e.key === 'Enter') {
       setSearchKeyword(e.target.value);
-      getVideoList();
     }
   };
 
   useEffect(() => {
-    getVideoList();
-  }, []);
+      async function getVideoList() {
+        const fetchData = await fetch(`${apiURL}?${getSearchParams(searchKeyword)}`).then((res) => res.json()).then((res) => res.items); 
+        setVideoList(fetchData);
+      }
+
+      getVideoList();
+  }, [searchKeyword]);
 
   return (
     <>
