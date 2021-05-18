@@ -19,7 +19,6 @@ function App() {
   const [searchKeyword, setSearchKeyword] = useState('');
   const apiURL = "https://www.googleapis.com/youtube/v3/search";
   
-  console.log(process.env.API_KEY);
   const handleSearch = (e) => {
     if (e.key === 'Enter') {
       setSearchKeyword(e.target.value);
