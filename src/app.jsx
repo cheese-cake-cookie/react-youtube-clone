@@ -6,6 +6,7 @@ import VideoDetail from './components/video-detail/videoDetail';
 function getSearchParams(searchKeyword) {
   const options = {
     part: "id,snippet",
+    chart: 'mostPopular',
     regionCode: "KR",
     key: process.env.REACT_APP_API_KEY,
     maxResults: 20,
@@ -19,7 +20,7 @@ function App() {
   const [videoList, setVideoList] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [searchKeyword, setSearchKeyword] = useState('');
-  const apiURL = "https://www.googleapis.com/youtube/v3/search";
+  const apiURL = "https://www.googleapis.com/youtube/v3/videos";
   
   const selectVideo = (video) => {
     setSelectedVideo(video);
