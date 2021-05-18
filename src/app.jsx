@@ -6,7 +6,7 @@ function getSearchParams(searchKeyword) {
   const options = {
     part: "id,snippet",
     regionCode: "KR",
-    key: "AIzaSyBFZj-aYdpJJaUXvva_YKpoEDR91GVawzU",
+    key: process.env.REACT_APP_API_KEY,
     maxResults: 20,
     q: searchKeyword,
   };
@@ -19,6 +19,7 @@ function App() {
   const [searchKeyword, setSearchKeyword] = useState('');
   const apiURL = "https://www.googleapis.com/youtube/v3/search";
   
+  console.log(process.env.API_KEY);
   const handleSearch = (e) => {
     if (e.key === 'Enter') {
       setSearchKeyword(e.target.value);
