@@ -1,0 +1,25 @@
+.video__detail {
+  font-size: 16px;
+  overflow: hidden;
+}
+.video__info {
+  padding: 15px;
+}
+.video__title {
+  margin: 5px 0px;
+  font-size: 1.6em;
+  line-height: 1.4em;
+  -webkit-line-clamp: initial;
+}
+.video__thumbnail {
+  width: 100%;
+}
+.video__description {
+  font-size: 0.9em;
+  color: #606060;
+}
+.channel__title {
+  margin: 5px 0px;
+  font-size: 1em;
+  font-weight: normal;
+}
