@@ -1,15 +1,17 @@
 import styles from './header.module.css';
 
 function Header(props) {
-  const {handleSearch} = props;
+  const {handleSearch, selectVideo} = props;
 
   return (
     <header className={styles.header}>
-      <a className={styles.logo} href="#"><img src="/img/logo.png" /></a>
+      <button className={styles.logo} onClick={() => {
+        selectVideo(null)
+      }}><img src="/img/logo.png" alt="logo"/></button>
       <input className={styles.search__keyword} type="search" onKeyDown={handleSearch}/>
       <i className="icon--search"></i>
       <div className={styles.user}>
-        <a className={styles.user__profile} href="#"></a>
+        <button className={styles.user__profile}></button>
       </div>
     </header>
   );

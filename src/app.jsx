@@ -42,7 +42,7 @@ function App() {
 
   return (
     <>
-      <Header handleSearch={handleSearch}></Header>
+      <Header handleSearch={handleSearch} selectVideo={selectVideo}></Header>
       { selectedVideo && <VideoDetail video={selectedVideo}></VideoDetail> }
       <VideoList videoList={videoList} selectVideo={selectVideo}></VideoList>
     </>
