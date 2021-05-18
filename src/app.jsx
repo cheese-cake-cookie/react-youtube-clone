@@ -21,6 +21,7 @@ function App() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [searchKeyword, setSearchKeyword] = useState('');
   const apiURL = "https://www.googleapis.com/youtube/v3/videos";
+  const searchURL = "https://www.googleapis.com/youtube/v3/search";
   
   const selectVideo = (video) => {
     setSelectedVideo(video);
@@ -32,12 +33,21 @@ function App() {
   };
 
   useEffect(() => {
-      async function getVideoList() {
-        const fetchData = await fetch(`${apiURL}?${getSearchParams(searchKeyword)}`).then((res) => res.json()).then((res) => res.items); 
-        setVideoList(fetchData);
-      }
+    async function getVideoList() {
+      const fetchData = await fetch(`${apiURL}?${getSearchParams()}`).then((res) => res.json()).then((res) => res.items); 
+      setVideoList(fetchData);
+    }
 
-      getVideoList();
+    getVideoList();
+  }, []);
+
+  useEffect(() => {
+    async function getVideoList() {
+      const fetchData = await fetch(`${searchURL}?${getSearchParams(searchKeyword)}`).then((res) => res.json()).then((res) => res.items); 
+      setVideoList(fetchData);
+    }
+
+    searchKeyword && getVideoList();
   }, [searchKeyword]);
 
   return (
