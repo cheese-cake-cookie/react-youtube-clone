@@ -13,8 +13,11 @@ function App({youtube}) {
   }
   const handleSearch = (e) => {
     if (e.key === 'Enter') {
-      console.log('search');
-      youtube.search(e.target.value).then(setVideoList);
+      setSelectedVideo(null);
+      
+      youtube
+        .search(e.target.value)
+        .then(setVideoList);
     }
   };
 
